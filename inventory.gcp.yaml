@@ -1,0 +1,8 @@
+plugin: gcp_compute
+projects:
+  - my-project-1
+  - my-project-2
+auth_kind: serviceaccount
+service_account_file: /path/to/credentials.json
+filters:
+  - status = RUNNING

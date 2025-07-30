@@ -1,0 +1,9 @@
+- name: Gather disk usage
+  shell: df -h > /tmp/disk_usage.txt
+
+- name: Upload to GCS
+  gcp_storage_object:
+    bucket: my-monitoring-bucket
+    object_name: "{{ inventory_hostname }}-disk-usage.txt"
+    src: /tmp/disk_usage.txt
+    credentials_file: /path/to/credentials.json
